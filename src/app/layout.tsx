@@ -29,6 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
+      <head>
+        <link rel="shortcut icon" href="avatar.png" type="image/x-icon" />
+      </head>
       <body className={`${inconsolata.variable} ${mavenPro.variable} ${asap.variable}`}>
         <Provider>
           {children}
