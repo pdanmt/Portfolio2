@@ -7,7 +7,7 @@
 <br />
 
 ## Tecnologias 🧪
-O [Portfólio](https://portfolio2-pdd-vercel.app) foi desenvolovido com as seguintes tecnologias:
+O [Portfólio](https://portfolio2-pdd.vercel.app) foi desenvolovido com as seguintes tecnologias:
 
 - [Next.JS](https://nextjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
