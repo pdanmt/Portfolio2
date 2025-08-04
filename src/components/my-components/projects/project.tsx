@@ -1,4 +1,4 @@
-import { Box, Link, Text } from "@chakra-ui/react"
+import { Box, Flex, Link, Text } from "@chakra-ui/react"
 import Image from "next/image"
 
 interface ProjectProps {
@@ -17,7 +17,7 @@ export function Project({
     return (
         <Link
             w={['95vw', '330px']}
-            h='260px'
+            minH='260px'
             bg='gray.400'
             p='0.7rem'
             borderRadius='12px'
@@ -33,7 +33,8 @@ export function Project({
         >
             <Box
                 w='100%'
-                h='156px'
+                minH='156px'
+                maxH='156px'
                 pos='relative'
                 bg='gray.500'
                 borderRadius='8px'
@@ -48,7 +49,11 @@ export function Project({
                     }}
                 />
             </Box>
-            <Box>
+            <Flex
+                direction='column'
+                flex={1}
+                w='100%'
+            >
                 <Text
                     fontFamily='Asap'
                     fontSize='titleSm'
@@ -60,7 +65,7 @@ export function Project({
                 <Text fontFamily='Maven Pro' fontSize='textSm' color='gray.200'>
                     {description}
                 </Text>
-            </Box>
+            </Flex>
         </Link >
     )
 }

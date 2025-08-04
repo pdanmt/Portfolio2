@@ -7,7 +7,9 @@ interface TitleProps {
 
 export function Title({ subtitle, title }: TitleProps) {
     return (
-        <Box textAlign='center'>
+        <Box
+            textAlign='center'
+        >
             <Text color='red' fontFamily='Inconsolata' fontSize='subtitle'>
                 {subtitle}
             </Text>

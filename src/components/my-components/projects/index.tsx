@@ -24,42 +24,61 @@ interface ReposBody {
 }
 
 export async function Projects() {
+  async function findCoverImage(baseUrl: string) {
+    const imageExtensions = ['svg', 'jpg', 'jpeg', 'png']
+
+    for (const extension of imageExtensions) {
+      const url = `${baseUrl}/public/cover.${extension}`
+
+      try {
+        await axios.head(url)
+        return url
+      } catch (error) { }
+    }
+    return '/public/fallback-cover.png'
+  }
+
   async function getRepos() {
     try {
       const res = await axios.get('https://api.github.com/users/pdanmt/repos')
       const data: ResponseBody[] = res.data
 
-      const infos = data.sort((a, b) => {
+      const infosSortedByStars = data.sort((a, b) => {
         return b.stargazers_count - a.stargazers_count
-      }).slice(0, 6).map(({
-        id,
-        description,
-        name,
-        html_url,
-        full_name,
-        default_branch,
-      }: ResponseBody) => {
-        const branch = default_branch
-        const fullName = full_name
+      }).slice(0, 6)
 
-        const rawBaseUrl = `https://raw.githubusercontent.com/${fullName}/${branch}/`
-        const imgUrl = rawBaseUrl + 'public/cover.svg'
-
-        return {
+      const repoInfos = Promise.all(
+        infosSortedByStars.map(async ({
           id,
           description,
           name,
-          htmlUrl: html_url,
-          imgUrl
-        } as ReposBody
-      })
+          html_url,
+          full_name,
+          default_branch,
+        }: ResponseBody) => {
+          const branch = default_branch
+          const fullName = full_name
 
-      return infos
+          const rawBaseUrl = `https://raw.githubusercontent.com/${fullName}/${branch}/`
+          const imgUrl = await findCoverImage(rawBaseUrl)
+
+          return {
+            id,
+            description,
+            name,
+            htmlUrl: html_url,
+            imgUrl
+          } as ReposBody
+        })
+      )
+
+      return repoInfos
     } catch (error) {
       console.error(`Erro ao buscar repositórios: ${error}`)
       return []
     }
   }
+
   const repos = await getRepos()
 
   return (

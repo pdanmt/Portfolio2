@@ -14,7 +14,7 @@ export function Intro() {
     <Flex
       direction='column'
       align='center'
-      minH='100vh'
+      h='100vh'
       w='100%'
       pos='relative'
       justify='center'
@@ -35,28 +35,33 @@ export function Intro() {
         w={['95%', '90%', '90%', '55%']}
         textAlign='center'
         align='center'
-        gap='1.rem'
+        gap='1rem'
         lineHeight={['text', 'text', 'title']}
         wordBreak='keep-all'
       >
         <Box
-          w='100px'
-          h='100px'
+          w={['80px', '100px']}
+          h={['80px', '100px']}
           borderRadius='100%'
           pos='relative'
           border='3px solid transparent'
           outline='3px solid'
           outlineColor='red'
-          mb='3rem'
+          mb={['0.5rem', '2rem', '3rem']}
         >
           <Image src={avatar} alt="" fill />
         </Box>
-        <Text fontFamily='Inconsolata' fontSize='subtitle' color='gray.200'>
+
+        <Text
+          fontFamily='Inconsolata'
+          fontSize='subtitle'
+          color='gray.200'
+        >
           Hello World! Meu nome é <Text as='span' color='red'>Pedro Daniel</Text> e sou
         </Text>
         <Text
           fontFamily='Asap'
-          fontSize={['2.25rem', '2.5rem', 'titleLg']}
+          fontSize={['2rem', '2.5rem', 'titleLg']}
           color='gray.100'
           fontWeight='bold'
         >
@@ -65,8 +70,9 @@ export function Intro() {
         <Text fontFamily='Maven Pro' fontSize='textSm' color='gray.300'>
           Sou apaixonado em transformar ideias em realidade digital. Estudante de desenvolvimento Web Front-End, com foco em criação de aplicações úteis para resolução de problemas diversos.
         </Text>
+
         <Flex
-          mt='3rem'
+          mt={['0.5rem', '2rem', '3rem']}
           gap={['0.5rem', '1rem']}
           wrap='wrap'
           justify='center'
@@ -79,6 +85,7 @@ export function Intro() {
           <Tech text='Next.JS' iconColor='gray.100'><RiNextjsLine /></Tech>
         </Flex>
       </Flex>
+
       <ScrollDownBtn />
     </Flex>
   )

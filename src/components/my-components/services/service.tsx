@@ -16,7 +16,7 @@ export function Service({
 }: ServiceProps) {
     return (
         <Flex
-            p='1.25rem'
+            p='0.75rem'
             h='155px'
             w={['90vw', '280px']}
             border='2px solid'
