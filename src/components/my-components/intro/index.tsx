@@ -36,12 +36,12 @@ export function Intro() {
         textAlign='center'
         align='center'
         gap='1rem'
-        lineHeight={['text', 'text', 'title']}
+        lineHeight={['1.1', 'text', 'title']}
         wordBreak='keep-all'
       >
         <Box
-          w={['80px', '100px']}
-          h={['80px', '100px']}
+          w={['70px', '80px', '100px']}
+          h={['70px', '80px', '100px']}
           borderRadius='100%'
           pos='relative'
           border='3px solid transparent'
@@ -61,7 +61,7 @@ export function Intro() {
         </Text>
         <Text
           fontFamily='Asap'
-          fontSize={['2rem', '2.5rem', 'titleLg']}
+          fontSize={['1.7rem', '2rem', '2.5rem', 'titleLg']}
           color='gray.100'
           fontWeight='bold'
         >

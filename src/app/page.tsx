@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Intro />
 
-      <Projects />
+      {/* <Projects /> */}
 
       <Services />
 
